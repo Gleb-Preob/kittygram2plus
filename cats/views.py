@@ -20,6 +20,7 @@ class CatViewSet(viewsets.ModelViewSet):
     filterset_fields = ('color', 'birth_year')
     search_fields = ('name', 'achievements__name', 'owner__username')
     ordering_fields = ('name', 'birth_year')
+    ordering = ('birth_year',) 
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
